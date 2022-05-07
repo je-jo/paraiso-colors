@@ -1,41 +1,43 @@
 const colors = [
-    "#2f1e2e",
-    "#41323f",
-    "#4f424c",
-    "#776e71",
-    "#8d8687",
-    "#a39e9b",
-    "#b9b6b0",
-    "#e7e9db",
-    "#ef6155",
-    "#f99b15",
-    "#fec418",
-    "#48b685",
-    "#5bc4bf",
-    "#06b6ef",
-    "#815ba4",
-    "#e96ba8",
+    '#2F1E2E',
+    '#41323F',
+    '#4F424C',
+    '#776E71',
+    '#8D8687',
+    '#A39E9B',
+    '#B9B6B0',
+    '#E7E9DB',
+    '#EF6155',
+    '#F99B15',
+    '#FEC418',
+    '#48B685',
+    '#5BC4BF',
+    '#06B6EF',
+    '#815BA4',
+    '#E96BA8'
 ]
 
 const boxes = [...document.querySelectorAll(".box")];
-boxes.forEach(box => {
-    box.style.backgroundColor = "hotpink"
-})
+const tooltips = [...document.querySelectorAll(".tooltip")];
+const tooltip = document.createElement("span");
+tooltip.classList.add("tooltip")
 
-for (i = 0; i < boxes.length; i++) {
+for (let i = 0; i < boxes.length; i++) {
     boxes[i].style.backgroundColor = colors[i];
     boxes[i].textContent = colors[i];
+
     if (i < boxes.length / 4) {
         boxes[i].style.color = "#e7e9db"
     }
     else {
         boxes[i].style.color = "#2f1e2e"
     }
+
 }
-
-
 
 boxes.forEach(box =>
     box.addEventListener("click", function (e) {
         navigator.clipboard.writeText(e.currentTarget.textContent);
+        box.appendChild(tooltip);
+        tooltip.textContent = `COPIED!`;
     }))
