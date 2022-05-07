@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: sans-serif;
+}
+
+main {
+    width: 95%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25%, 1fr));
+    /* padding: 4vh;
+    gap: 4vh; */
+}
+
+.box {
+    display: grid;
+    place-items: end;
+    height: 25vh;
+    font-size: calc(0.5rem + 1vw);
+    color: #2f1e2e;
+}
+
+.box:hover {
+    box-shadow: inset 0px 0px 0px 25vh rgba(231,233,219,0.1);
+}
+
